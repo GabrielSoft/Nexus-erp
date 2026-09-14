@@ -1,0 +1,1 @@
+import { describe,it,expect } from 'vitest'; import { loginSchema,saleSchema } from '../src/validations/schemas.js'; describe('contracts',()=>{it('rejects weak login payload',()=>expect(()=>loginSchema.parse({email:'no',password:''})).toThrow());it('requires one sale item',()=>expect(()=>saleSchema.parse({customerId:'a',paymentMethod:'PIX',items:[]})).toThrow())});
