@@ -4,7 +4,9 @@ import type { AxiosError, InternalAxiosRequestConfig } from 'axios';
 const configuredBaseURL = import.meta.env.VITE_API_URL?.trim();
 const baseURL = configuredBaseURL || (import.meta.env.PROD ? '/api' : 'http://localhost:3333/api');
 
-export const api = axios.create({ baseURL, timeout: 15000 });
+const timeout = import.meta.env.PROD ? 60000 : 15000;
+
+export const api = axios.create({ baseURL, timeout });
 
 let refreshPromise: Promise<string | null> | null = null;
 
