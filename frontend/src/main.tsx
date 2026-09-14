@@ -125,6 +125,11 @@ function App() {
             path="/financial"
             element={<Financial />}
           />
+
+          <Route
+            path="/reports"
+            element={<Reports />}
+          />
         </Route>
 
         <Route
